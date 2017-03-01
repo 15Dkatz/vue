@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quick Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <h4>Directives!</h4>
+    <div id="app">
+      {{message}}
+    </div>
+    <div id="app-2">
+      <span v-bind:title="message">
+        Hover over this message to see a dynamic title!
+      </span>
+    </div>
+    <div id="app-3">
+      <p v-if="shown">Revealing the message!</p>
+    </div>
+    <div id="app-4">
+      <ol>
+        <li v-for="c in classes">
+          {{c.text}}
+        </li>
+      </ol>
+    </div>
+    <div id="app-5">
+      <p>{{message}}</p>
+      <button v-on:click="updateMessage">Update Message</button>
+    </div>
+    <br>
+    <div id="app-6">
+      <input v-model="boundData">
+      <button v-on:click="logData">Log Data</button>
+    </div>
+
+    <br>
+    <h4>Components</h4>
+
+    <!-- Why won't the component work as a template? -->
+    <!-- <ol>
+      <task-item v-bind:task="{text: hi}"></task-item>
+    </ol> -->
+
+    <div id="app-7">
+      <ol>
+        <task-item v-for="c in classes" v-bind:task="c"></task-item>
+      </ol>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
