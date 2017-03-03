@@ -28,3 +28,25 @@ var app2 = new Vue({
     }
   }
 })
+
+var app3 = new Vue({
+  el: '#app-3',
+  data: {
+    isActive: true,
+    hasDanger: true,
+    leadClass: 'lead',
+    quoteClass: 'blockquote',
+    styleObject: {
+      fontSize: '18px',
+      textDecoration: 'underline'
+    }
+  },
+  computed: {
+    computedClass: function() {
+      return {
+        active: false,
+        'text-danger': true
+      }
+    }
+  }
+})
