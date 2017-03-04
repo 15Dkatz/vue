@@ -11,12 +11,14 @@
       <p>{{letters | letterFilter}}</p>
       <input v-model="letters">
     </div>
-    <br>
+
+    <hr>
     <div id="app-2">
       <input v-model="value">
       <p>Reversed value: {{reversedValue}} | pallendrome: {{result}} </p>
     </div>
 
+    <hr>
     <div id="app-3" class="static"
       v-bind:class="{ active: isActive, 'text-danger': hasDanger }"
     >
@@ -25,6 +27,79 @@
       <div v-bind:style="styleObject">Check out my style.</div>
     </div>
 
+    <hr>
+    <div id="app-4">
+      <h3>Conditional Rendering</h3>
+      <h4 v-if="primary">Showing Primary Title</h4>
+      <h4 v-else>Showing Secondary Title</h4>
+      <br>
+      <template v-if="showTemplate">
+        <div>
+          Check out this template appearing because showTemplate === true.
+        </div>
+      </template>
+      <br>
+      <div v-if="number === 1">
+        One
+      </div>
+      <div v-else-if="number === 2">
+        Two
+      </div>
+      <div v-else>
+        Not a handled number
+      </div>
+      <br>
+      <template v-if="infoType === 'email'">
+        <label>Email</label>
+        <input placeholder="Enter your email">
+      </template>
+      <template v-else>
+        <label>Phone Number</label>
+        <input placeholder="Enter your phone number">
+      </template>
+      <br>
+      <button v-on:click="toggleInfoType">Toggle Type</button>
+    </div>
+
+    <hr>
+    <div id="app-5">
+      <div>Tasks</div>
+      <template v-for="(task, index) of tasks">
+        Task {{index}}: {{task.title}}
+        <div class="divider"></div>
+      </template>
+      <br>
+      <ul>
+        <li v-for="(value, key, index) in vader">{{key}} : {{value}} | {{index}}</li>
+      </ul>
+      <br>
+      <div>
+        <span v-for="n in 20">{{n}} </span>
+      </div>
+    </div>
+
+    <hr>
+    <div id="app-6">
+      <input
+        v-model="newTask"
+        v-on:keyup.enter="addTask"
+        placeholder="Add a Task"
+      >
+      <ul>
+        <li
+          is="task-item"
+          v-for="(task, index) in tasks"
+          v-bind:key="index"
+          v-bind:task="task"
+          v-if="!task.isDone"
+        ></li>
+      </ul>
+      <ul>
+        <li
+          v-for="n in oddsOnly(numbers)"
+        >{{n}}</li>
+      </ul>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
