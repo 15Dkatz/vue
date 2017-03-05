@@ -5,6 +5,7 @@
     <title>Instance Vue</title>
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
   </head>
   <body style="padding: 5px">
     <div id="app-1">
@@ -100,6 +101,75 @@
         >{{n}}</li>
       </ul>
     </div>
+
+    <hr>
+    <div id="app-7">
+      <h4>Event Handling</h4>
+      <button v-on:click="alert">Alert</button>
+      <br>
+      <button v-on:click="inline('shout')">Inline</button>
+      <br>
+      <div v-on:click.self="alert" class="bordered">
+        <div class="bordered">Clicking me should not work | the parent div is on self</div>
+        <br>
+        <button v-on:click.capture="alert">Stop this click</button>
+        <br>
+      </div>
+      <br>
+      <p>SHIFT+ENTER to capitalize your message</p>
+      <input v-model="message" @keyup.shift.enter="toUpper">
+    </div>
+
+    <hr>
+    <div id="app-8">
+      <h4>Form Input Bindings</h4>
+      <span>Multiline message with v-model (!No interpolation)</span>
+      <textarea v-model="multiMessage"></textarea>
+      <br>
+      <div>Flavors</div>
+      <input type="checkbox" id="mango" value="mango" v-model="flavors">
+      <label for="mango">Mango</label>
+      <input type="checkbox" id="apple" value="apple" v-model="flavors">
+      <label for="apple">Apple</label>
+      <input type="checkbox" id="melon" value="melon" v-model="flavors">
+      <label for="melon">Melon</label>
+      <br>
+      <span>Flavors: {{flavors}}</span>
+      <br>
+      <div>Choose One</div>
+      <input type="radio" id="archer" value="Archer" v-model="chosen">
+      <label for="archer">Archer</label>
+      <br>
+      <input type="radio" id="ranger" value="Ranger" v-model="chosen">
+      <label for="ranger">Ranger</label>
+      <br>
+      <span>Type: {{chosen}}</span>
+      <br>
+      <br>
+      <div>Multi Select</div>
+      <select v-model="selected" multiple>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <br>
+      <span>Highlighted: {{selected}}</span>
+      <br>
+      <br>
+      <div>V-bind</div>
+      <input
+        type="checkbox"
+        v-model="bound"
+        v-bind:true-value="boundTrue"
+        v-bind:false-value="boundFalse"
+      >
+      <p>Checkbox: {{bound}}</p>
+      <br>
+      <input v-model.number="cell">
+      <br>
+      <input v-model.trim="email">
+    </div>
+
     <script src="./index.js"></script>
   </body>
 </html>

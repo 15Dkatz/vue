@@ -114,3 +114,46 @@ var app6 = new Vue({
     }
   }
 })
+
+
+// event handling
+var app7 = new Vue({
+  el: '#app-7',
+  data: {
+    message: ''
+  },
+  methods: {
+    alert: function(event) {
+      console.log('event in alert', event);
+      alert('Vue says RED ALERT')
+    },
+    inline: function(message) {
+      console.log('inline message', message)
+    },
+    toUpper: function() {
+      this.message = this.message.toUpperCase();
+    }
+  }
+})
+
+// form input bindings
+var app8 = new Vue({
+  el: '#app-8',
+  data: {
+    multiMessage: '',
+    flavors: [],
+    chosen: '',
+    selected: [],
+    toggle: '',
+    bound: '',
+    boundTrue: 'bound true',
+    boundFalse: 'bound false',
+    cell: 555,
+    email: 'email'
+  },
+  methods: {
+   log: function() {
+     console.log('logging data:', 'multiMessage', this.multiMessage)
+   }
+  }
+})
