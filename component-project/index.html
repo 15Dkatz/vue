@@ -12,12 +12,39 @@
       <global-component></global-component>
     </div>
 
+    <br>
+
     <div id="app-2">
       <local-component></local-component>
       <br>
       <even-counter></even-counter>
       <even-counter></even-counter>
     </div>
+
+    <br>
+    <hr>
+    <h4>
+      Illustrating Props
+    </h4>
+    <div id="app-3">
+      <input v-model="furColor"/>
+      <input v-model="numTeeth"/>
+      <cub
+        v-bind:fur-color="furColor"
+        :num-teeth="numTeeth">
+      </cub>
+    </div>
+
+    <br>
+    <h4>Props with Requirements</h4>
+    <div id="app-4">
+      <!-- The commented out strict-cub below incurs warning with no fur-color specified -->
+      <!-- Missing required props: "furColor" (found in <StrictCub>) -->
+      <!-- <strict-cub></strict-cub> -->
+      <!-- Below proves valid -->
+      <strict-cub fur-color="black"></strict-cub>
+    </div>
+
     <script src="./index.js"></script>
   </body>
 </html>
