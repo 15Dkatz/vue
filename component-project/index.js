@@ -120,6 +120,100 @@ var localArr = Vue.component('local-arr', {
 })
 
 
+var lowerInput = Vue.component('lower-input', {
+  template: '<input v-bind:value="checkText" v-on:input="lowerText">',
+  data: function() {
+    return {
+      checkText: ''
+    }
+  },
+  methods: {
+    lowerText: function(event) {
+      this.checkText = event.target.value.toLowerCase();
+    }
+  }
+})
+
+// example of intiializing data as props
+// then cleaning any further data input
+var upperInput = Vue.component('upper-input', {
+  template: `
+    <span>
+      Can you input anything lowercase...?
+      <br>
+      <input
+        v-bind:value="newText"
+        v-on:input="upperText($event.target.value)">
+    </span>
+  `,
+  // must specify props in the object
+  props: {
+    text: {
+      type: String,
+      required: true
+    }
+  },
+
+  data: function() {
+    return {
+      newText: this.text
+    }
+  },
+
+
+  methods: {
+    upperText: function(text) {
+      this.newText = text.toUpperCase();
+    }
+  }
+})
+
+
+
+
+// Make multiple enlarge buttons with a button component
+var textBus = new Vue();
+
+var growButton = Vue.component('grow-button', {
+  template: `<button v-on:click="grow">Grow</button>`,
+  methods: {
+    grow: function() {
+      console.log('emitting grow');
+      textBus.$emit('grow')
+    }
+  }
+})
+
+
+// Make text components that grow in size with each button component click
+
+var textField = Vue.component('text-field', {
+  template: `<div :style="computedFont">text</div>`,
+  props: {
+    size: {
+      type: String,
+      required: true
+    }
+  },
+  data: function() {
+    return {
+      newTextSize: this.size
+    }
+  },
+  created: function() {
+    // arrow function for to recognize the 'this' object of the parent
+    textBus.$on('grow', () => {
+      this.newTextSize *= 2;
+    })
+  },
+  computed: {
+    computedFont: function() {
+      return `font-size: ${this.newTextSize}px`
+    }
+  }
+
+});
+
 
 var app5 = new Vue({
   el: '#app-5',
@@ -130,16 +224,5 @@ var app5 = new Vue({
     growTotal: function() {
       this.globalArr.push('*')
     }
-  },
-  components: {
-    'local-arr': localArr
   }
 })
-
-// TODO Form input
-// var checkInput = Vue.component('check-input', {
-//   template: '<input v-on:input=""/>'
-// })
-
-
-// check if you can use the input to call a computed cleaning property at every input.

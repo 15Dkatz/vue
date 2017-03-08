@@ -51,9 +51,23 @@
     <div id="app-5">
       <p>{{globalArr}}</p>
       <local-arr v-on:grow="growTotal"></local-arr>
-      <!-- <br> -->
+      <br>
       <local-arr v-on:grow="growTotal"></local-arr>
+      <br>
+      <br>
+      <p>All input automatically goes lowercase!</p>
+      <lower-input></lower-input>
+      <br>
+      <upper-input text="START"></upper-input>
+
+      <br>
+      <br>
+      <grow-button></grow-button>
+      <grow-button></grow-button>
+      <text-field size="20"></text-field>
     </div>
+
+
 
     <script src="./index.js"></script>
   </body>
