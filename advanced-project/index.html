@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <div id="app-1">
+      <button v-on:click="toggleReveal">Toggle Reveal</button>
+      <transition name="fade">
+        <p v-if="reveal">{{message}}</p>
+      </transition>
+
+      <br>
+      <br>
+      <hr>
+      <h4>toggling between views</h4>
+      <button v-on:click="toggleView">Toggle View</button>
+      <transition name="component-fade">
+        <component v-bind:is="view"></component>
+      </transition>
+
+      <br>
+      <br>
+      <!-- TODO LIST TRANSITIONS https://vuejs.org/v2/guide/transitions.html -->
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

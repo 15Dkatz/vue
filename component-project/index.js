@@ -265,4 +265,4 @@ var app6 = new Vue({
   }
 })
 
-// TODO app6 handles Content Distribution with Slots.
+// TODO read through the misc.
