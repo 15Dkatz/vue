@@ -65,9 +65,25 @@
       <grow-button></grow-button>
       <grow-button></grow-button>
       <text-field size="20"></text-field>
+
+      <br>
+      <br>
     </div>
 
+    <div id="app-6">
+      <slot-component></slot-component>
 
+      <form-component>
+        <h1 slot="title">Here lies the title</h1>
+        <template scope="props">
+          <span>{{props.subtitle}}</span>
+        </template>
+      </form-component>
+      <hr>
+      <component v-bind:is="currentComponent">
+      </component>
+      <button v-on:click="change">Change Component</button>
+    </div>
 
     <script src="./index.js"></script>
   </body>

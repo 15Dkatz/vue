@@ -214,7 +214,6 @@ var textField = Vue.component('text-field', {
 
 });
 
-
 var app5 = new Vue({
   el: '#app-5',
   data: {
@@ -226,3 +225,44 @@ var app5 = new Vue({
     }
   }
 })
+
+
+
+var slotComponent = Vue.component('slot-component', {
+  template: `
+    <div>
+      <h2>Check out the slot comp title</h2>
+      <slot>Fallback to this slot.</slot>
+    </div>
+  `
+})
+
+var formComponent = Vue.component('form-component', {
+  template: `
+    <form>
+      <div>
+        <slot name="title"></slot>
+        <slot subtitle="check out the subs"></slot>
+      </div>
+    </form>
+  `
+})
+
+var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    currentComponent: 'slot-c'
+  },
+  components: {
+    'slot-c': slotComponent,
+    'form-c': formComponent
+  },
+  methods: {
+    change: function() {
+      console.log('change', this.currentComponent);
+      this.currentComponent = this.currentComponent == 'slot-c' ? 'form-c' : 'slot-c';
+    }
+  }
+})
+
+// TODO app6 handles Content Distribution with Slots.
