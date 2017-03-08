@@ -95,3 +95,51 @@ var app4 = new Vue({
 
 
 // CONTINUE WITH CUSTOM EVENTS IN COMPONENTS
+
+
+// use events to handle data passing from children to parents
+// make a total input
+
+// make a component that "grows" an array by adding stars - * - to it
+// have a global component that compiles the arrays
+// combine arrays
+var localArr = Vue.component('local-arr', {
+  template: '<button v-on:click="grow">{{localArr}}</button>',
+  data: function() {
+    return {
+      localArr: []
+    }
+  },
+  methods: {
+    grow: function() {
+      this.localArr.push('*')
+      this.$emit('grow')
+
+    }
+  }
+})
+
+
+
+var app5 = new Vue({
+  el: '#app-5',
+  data: {
+    globalArr: []
+  },
+  methods: {
+    growTotal: function() {
+      this.globalArr.push('*')
+    }
+  },
+  components: {
+    'local-arr': localArr
+  }
+})
+
+// TODO Form input
+// var checkInput = Vue.component('check-input', {
+//   template: '<input v-on:input=""/>'
+// })
+
+
+// check if you can use the input to call a computed cleaning property at every input.
