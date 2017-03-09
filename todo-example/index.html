@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- loading vue -->
+    <script src="https://unpkg.com/vue@2.2.2/dist/vue.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="todo-app">
+      <input placeholder="Add a title" v-model="nextTodo.title"/>
+      <input placeholder="Add some text" v-model="nextTodo.text"/>
+      <button v-on:click="addNextTodo(nextTodo)">Add Next Todo</button>
+      <ol>
+        <li v-for="(todo, index) in todos">{{ todo.text }}</li>
+      </ol>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
