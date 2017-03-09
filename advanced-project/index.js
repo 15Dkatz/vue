@@ -99,3 +99,25 @@ var renderDemo = new Vue({
     'simple-template': simpleTemplate
   }
 })
+
+// console.log('loaded');
+
+var focus = Vue.directive('focus', {
+  inserted: function(el, binding) {
+    console.log('el', el);
+    console.log('binding', binding);
+    var trueFocus = binding.value.trueFocus;
+
+    if (trueFocus) {
+      console.log('trueFocus', trueFocus);
+      el.innerHTML = 'inserted focus';
+    }
+  }
+})
+
+var directiveDemo = new Vue({
+  el: '#directive-demo',
+  directives: {
+    focus: focus
+  }
+})
