@@ -25,6 +25,24 @@
 
       <br>
       <br>
+    </div>
+    <br>
+    <hr>
+    <div id="list-demo">
+      <p>List transitions</p>
+      <!-- Display the adding and removing of items in a list -->
+      <button v-on:click="add">Add random number</button>
+      <button v-on:click="remove">Remove last</button>
+      <br>
+      <transition-group name="list-complete">
+        <span
+          v-for="(num, index) in numbers"
+          v-bind:key="index"
+          class="list-complete-item"
+        >
+          {{num}}
+        </span>
+      </transition-grou>
       <!-- TODO LIST TRANSITIONS https://vuejs.org/v2/guide/transitions.html -->
     </div>
     <script src="./index.js"></script>

@@ -34,3 +34,18 @@ var app1 = new Vue({
 })
 
 // apply transition effect of fade
+
+var listDemo = new Vue({
+  el: '#list-demo',
+  data: {
+    numbers: [10, 20, 30, 40, 50]
+  },
+  methods: {
+    add: function() {
+      this.numbers.push(Math.ceil(Math.random()*10)*10);
+    },
+    remove: function() {
+      this.numbers.splice(this.numbers.length-1, 1)
+    }
+  }
+})
