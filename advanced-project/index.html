@@ -26,7 +26,6 @@
       <br>
       <br>
     </div>
-    <br>
     <hr>
     <div id="list-demo">
       <p>List transitions</p>
@@ -44,6 +43,14 @@
         </span>
       </transition-grou>
       <!-- TODO LIST TRANSITIONS https://vuejs.org/v2/guide/transitions.html -->
+    </div>
+    <br>
+    <hr>
+    <h4>Simple vs. Render template</h4>
+    <div id="render-demo">
+      <simple-template :level="2"><a>Simple template link</a></simple-template>
+      <br>
+      <render-template :level="6"><a>Render template link</a></render-template>
     </div>
     <script src="./index.js"></script>
   </body>

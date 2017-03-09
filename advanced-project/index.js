@@ -49,3 +49,53 @@ var listDemo = new Vue({
     }
   }
 })
+
+// showing off the improvement with anchor-headings
+
+var simpleTemplate = Vue.component('simple-template', {
+    template: `
+      <div>
+        <h1 v-if="level === 1">
+          <slot></slot>
+        </h1>
+        <h2 v-if="level === 2">
+          <slot></slot>
+        </h2>
+      </div>
+    `,
+    data: function() {
+      return {
+        level: 2
+      }
+    }
+});
+
+var renderTemplate = Vue.component('render-template', {
+  render: function(createElement) {
+
+    return createElement(
+      'h' + this.level,
+      [
+        createElement('a', {
+          attrs: {
+            name: 'replace with dynamic function that finds teh argued child text',
+            href: '#' + 'replace with dynamic function that finds the argued child text'
+          }
+        }, this.$slots.default)
+      ]
+    )
+  },
+  props: {
+    level: {
+      type: Number,
+      required: true
+    }
+  }
+})
+
+var renderDemo = new Vue({
+  el: '#render-demo',
+  components: {
+    'simple-template': simpleTemplate
+  }
+})
