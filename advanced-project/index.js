@@ -104,12 +104,12 @@ var renderDemo = new Vue({
 
 var focus = Vue.directive('focus', {
   inserted: function(el, binding) {
-    console.log('el', el);
-    console.log('binding', binding);
+    // console.log('el', el);
+    // console.log('binding', binding);
     var trueFocus = binding.value.trueFocus;
 
     if (trueFocus) {
-      console.log('trueFocus', trueFocus);
+      // console.log('trueFocus', trueFocus);
       el.innerHTML = 'inserted focus';
     }
   }
@@ -121,3 +121,27 @@ var directiveDemo = new Vue({
     focus: focus
   }
 })
+
+
+// mixins
+
+var vueMixin = {
+  created: function() {
+    this.mixin()
+  },
+  methods:{
+    mixin: function() {
+      console.log('a mixin component method')
+    }
+  }
+};
+
+// Vue.extend?
+var MixinComponent = Vue.extend({
+  mixins: [vueMixin],
+  created: function() {
+    console.log('component created after mixin')
+  }
+})
+
+var mixinComponent = new MixinComponent();
