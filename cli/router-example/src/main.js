@@ -19,7 +19,7 @@ const routes = [
   { path: '/num/:num', component: Num }
 ]
 
-const router = new VueRouter({
+export const router = new VueRouter({
   routes
 })
 
@@ -27,5 +27,3 @@ const app = new Vue({
   router,
   render: h => h(App)
 }).$mount('#app');
-
-// TODO continue with nested routes!
