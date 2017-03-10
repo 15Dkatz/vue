@@ -7,12 +7,15 @@ import App from './App.vue'
 import One from './components/One.vue'
 import Two from './components/Two.vue'
 import Num from './components/Num.vue'
+import Three from './components/Three.vue'
+import Letters from './components/Letters.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/one', component: One },
   { path: '/two', component: Two },
+  { path: '/three', component: Three, children: [{ path: 'letters', component: Letters }] },
   { path: '/num/:num', component: Num }
 ]
 
@@ -24,3 +27,5 @@ const app = new Vue({
   router,
   render: h => h(App)
 }).$mount('#app');
+
+// TODO continue with nested routes!

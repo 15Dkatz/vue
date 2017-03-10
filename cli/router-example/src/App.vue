@@ -13,11 +13,13 @@
       <p>Static Routes</p>
       <router-link to="/one">Go to One</router-link>
       <router-link to="/two">Go to Two</router-link>
+      <router-link to="/three/letters">Go to Three</router-link>
       <br>
       <p>Dynamic Routes with Matching</p>
       <ol>
         <router-link
           v-for="num in nums"
+          key="num"
           :to="{path: `/num/${num}`}"
         ><li>Go to num/{{num}}</li></router-link>
       </ol>
@@ -26,7 +28,7 @@
       <router-view></router-view>
     </div>
     <hr>
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png">
     <h1></h1>
     <h2>Essential Links</h2>
     <ul>
@@ -41,7 +43,7 @@
       <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
