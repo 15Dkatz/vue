@@ -1,6 +1,8 @@
 <!-- Plan: import two components from other components/ (.vues)
      Then have dynamic rots
 
+     // Complete this tutorial:
+     http://router.vuejs.org/en/essentials/dynamic-matching.html
  -->
 
 <template>
@@ -8,8 +10,18 @@
     <div>
       <h4>Router links: import two components</h4>
       <!-- Router links get injected from main.js -->
+      <p>Static Routes</p>
       <router-link to="/one">Go to One</router-link>
       <router-link to="/two">Go to Two</router-link>
+      <br>
+      <p>Dynamic Routes with Matching</p>
+      <ol>
+        <router-link
+          v-for="num in nums"
+          :to="{path: `/num/${num}`}"
+        ><li>Go to num/{{num}}</li></router-link>
+      </ol>
+
       <p>Make sure to have a Router View tag</p>
       <router-view></router-view>
     </div>
@@ -38,7 +50,8 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      nums: [1, 2, 3, 4, 5]
     }
   }
 }

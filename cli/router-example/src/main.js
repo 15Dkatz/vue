@@ -6,12 +6,14 @@ import App from './App.vue'
 // import other components
 import One from './components/One.vue'
 import Two from './components/Two.vue'
+import Num from './components/Num.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/one', component: One },
-  { path: '/two', component: Two }
+  { path: '/two', component: Two },
+  { path: '/num/:num', component: Num }
 ]
 
 const router = new VueRouter({
