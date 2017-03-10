@@ -10,7 +10,7 @@
       <input placeholder="Add some text" v-model="nextTodo.text"/>
       <button v-on:click="addNextTodo(nextTodo)">Add Next Todo</button>
       <ol>
-        <li v-for="(todo, index) in todos">{{ todo.text }}</li>
+        <todo v-for="todo in todos" v-bind:item="todo"></todo>
       </ol>
     </div>
     <script src="./index.js"></script>
