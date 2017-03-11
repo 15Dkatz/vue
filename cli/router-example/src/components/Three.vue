@@ -10,7 +10,7 @@ export default {
   name: 'three',
   data() {
     return {
-      title: 'Component Three | with a nested route!'
+      title: 'Component Three | with a nested (letters) route!'
     }
   }
 }

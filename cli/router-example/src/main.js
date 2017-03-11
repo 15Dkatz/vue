@@ -14,8 +14,8 @@ Vue.use(VueRouter)
 
 const routes = [
   { path: '/one', component: One },
-  { path: '/two', component: Two },
-  { path: '/three', component: Three, children: [{ path: 'letters', component: Letters }] },
+  { path: '/two/:letter', component: Two, props: true },
+  { name: 'three', path: '/three', component: Three, children: [{ path: 'letters', component: Letters }] },
   { path: '/num/:num', component: Num }
 ]
 
