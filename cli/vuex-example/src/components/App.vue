@@ -2,6 +2,7 @@
   <div id="app">
     <ArrayComponent />
     <ArrayCount />
+    <IncrementButton />
     <!-- <img src="./assets/logo.png">
     <h1></h1>
     <h2>Essential Links</h2>
@@ -24,11 +25,12 @@
 <script>
 import ArrayComponent from './ArrayComponent.vue'
 import ArrayCount from './ArrayCount.vue'
+import IncrementButton from './IncrementButton.vue'
 
 export default {
   name: 'app',
   // specify the list of components
-  components: { ArrayComponent, ArrayCount }
+  components: { ArrayComponent, ArrayCount, IncrementButton }
 }
 </script>
 
