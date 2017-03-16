@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { mutations } from './mutations'
 import { INCREMENT_NUM } from './mutation-types'
+import moduleOne from './modules/module-one'
 
 Vue.use(Vuex)
 
@@ -34,6 +35,9 @@ const actions = {
 export default new Vuex.Store({
   state,
   getters,
+  modules: {
+    moduleOne
+  },
   mutations,
   actions
 })
