@@ -1,15 +1,11 @@
 import Vue from 'vue'
 
-// "name": "Luke Skywalker", "height": "172", "mass": "77",
-// "hair_color": "blond", "skin_color": "fair",
-// "eye_color": "blue", "birth_year": "19BBY",
-
 export default Vue.component('character', {
   template: `<div
-                class="col-md-6"
+                class="col-md-4"
                 v-on:click="select"
               >
-                <div class="card">
+                <div class="character-card">
                   <div class="card-block">
                     <h4 class="card-title">{{character.name}}</h4>
                     <p class="card-text"><strong>Height:</strong> {{character.height}}cm</p>
@@ -18,60 +14,31 @@ export default Vue.component('character', {
                     <p class="card-text"><strong>Eye Color:</strong> {{character.eye_color}}</p>
                   </div>
                 </div>
-                {{fetch_limit}}
               </div>`,
   props: ['id'],
   methods: {
+    fetchCharacter: function(id) {
+      fetch(`http://swapi.co/api/people/${id}/`, {
+        method: 'GET'
+      })
+      .then(response => response.json())
+      .then(json => {
+        console.log('json', json);
+        this.character = json;
+      })
+    },
     select: function() {
-      this.$emit('select', this.id);
-      this.fetch_limit++;
-      console.log('this.fetch_limit', this.fetch_limit);
+      // 83 is the number of characters in the list
+      let random_id = Math.floor(Math.random() * 83) + 1;
+      this.fetchCharacter(random_id)
     }
   },
   data() {
     return {
-      character: {},
-      fetch_limit: 0
+      character: {}
     }
   },
-  mounted: function() {
-    fetch(`http://swapi.co/api/people/${this.id}/`, {
-      method: 'GET'
-    })
-    .then(response => response.json())
-    .then(json => {
-      console.log('json', json);
-      this.character = json;
-    })
-  },
-  updated: function() {
-    console.log('called the character updated hook ');
-    
-    // fetch(`http://swapi.co/api/people/${this.id}/`, {
-    //   method: 'GET'
-    // })
-    // .then(response => response.json())
-    // .then(json => {
-    //   console.log('json', json);
-    //   this.character = json;
-    // })
+  created() {
+    this.fetchCharacter(this.id);
   }
-  // ,
-  // beforeUpdate: function() {
-  //   console.log('updated lifecycle hook called', this.fetch_limit);
-  //   this.fetch_limit++;
-  //
-  //   if (this.fetch_limit <= 2) {
-  //
-  //     fetch(`http://swapi.co/api/people/${this.id}/`, {
-  //       method: 'GET'
-  //     })
-  //     .then(response => response.json())
-  //     .then(json => {
-  //       console.log('json', json);
-  //       this.character = json;
-  //     })
-  //   }
-  //
-  // }
 })
