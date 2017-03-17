@@ -1,39 +1,47 @@
 <template>
   <div class="col-md-12">
     <Item
-      v-for="(id, index) in setup.initial_ids"
-      v-bind:id="id"
-      v-bind:type="setup.type"
+      v-for="(item, index) in items"
+      v-bind:passed-item="item"
+      v-bind:type="type"
       v-bind:key="index"
     />
-    {{setup.initial_ids}}
   </div>
 </template>
 
 <script>
-import Item from './Item.js'
+import Item from './Item.vue'
 
 export default {
   data() {
     return {
-      setup: {
-        type: this.$route.params.type,
-        initial_ids: [1, 13, 14]
-      }
+      items: [],
+      type: this.$route.params.type
     }
+  },
+  created() {
+    this.generateItems()
   },
   watch: {
-    '$route' (to, from) {
-      console.log('reacting to route changes', to, from)
-      this.regenerateItems()
-    }
+    '$route': 'generateItems'
   },
   methods: {
-    regenerateItems: function() {
-      console.log('regenerate items with', this.$route.params.type)
-      this.setup = {
-        type: this.$route.params.type,
-        initial_ids: [2, 4, 6]
+    generateItems() {
+      this.items = [];
+      this.type = this.$route.params.type
+      // for people
+      let initial_ids = [1, 13, 14]
+      for (let i in initial_ids) {
+        let id = initial_ids[i];
+        console.log('id', id);
+        fetch(`http://swapi.co/api/${this.type}/${id}/`, {
+          method: 'GET'
+        })
+        .then(response => response.json())
+        .then(json => {
+          this.items.push(json);
+          console.log('this.items', this.items);
+        })
       }
     }
   },

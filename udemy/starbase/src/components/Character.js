@@ -17,7 +17,7 @@ export default Vue.component('character', {
               </div>`,
   props: ['id'],
   methods: {
-    fetchCharacter: function(id) {
+    fetchCharacter(id) {
       fetch(`http://swapi.co/api/people/${id}/`, {
         method: 'GET'
       })
@@ -27,7 +27,7 @@ export default Vue.component('character', {
         this.character = json;
       })
     },
-    select: function() {
+    select() {
       // 83 is the number of characters in the list
       let random_id = Math.floor(Math.random() * 83) + 1;
       this.fetchCharacter(random_id)

@@ -16,6 +16,6 @@ body {
   border-radius: 4px;
 }
 
-.link {
+.link, .link:hover, .link:visited, .link:active {
   color: #4FC08D;
 }
