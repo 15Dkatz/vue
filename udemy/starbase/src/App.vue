@@ -17,7 +17,7 @@ export default {
   name: 'app',
   data() {
     return {
-      initial_ids: [1, 5, 13]
+      initial_ids: [1, 13, 14]
     }
   },
   components: {
