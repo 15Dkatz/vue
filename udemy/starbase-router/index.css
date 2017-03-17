@@ -15,3 +15,7 @@ body {
   border: 2px solid #4FC08D;
   border-radius: 4px;
 }
+
+.link {
+  color: #4FC08D;
+}
