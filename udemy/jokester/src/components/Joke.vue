@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-4">
+<div class="col-md-6">
   <div class="joke-card">
     <div class="card-block">
       <button
