@@ -1,6 +1,6 @@
 <template>
 <div class="form-inline">
-  <h3>Sign In</h3>
+  <h3>Sign Up</h3>
   <div class="form-group">
     <input
       type="text"
@@ -15,25 +15,21 @@
       v-model="password"
     />
     <button
-      @click="signIn"
       type="button"
       class="btn btn-primary"
+      @click="signUp"
     >
-      Sign In
+      Sign Up
     </button>
   </div>
   <br>
   <p>{{error.message}}</p>
   <br>
-  <router-link to="/signup">Not a user yet? Sign up.</router-link>
+  <router-link to="/signin">Already a user? Sign in.</router-link>
 </div>
 </template>
 
 <script>
-// TODO explain the idea of local state
-// b.c. error is only important to this component
-// but the store will update the user's info in the listener
-// for the entire app
 import { firebaseApp } from '../firebaseApp'
 
 export default {
@@ -46,14 +42,13 @@ export default {
       }
     }
   },
+
   methods: {
-    signIn() {
-      // example user (manually created on firebase):
-      // { email: frodo@hobbit.com, password: testing }
+    signUp() {
       const { email, password } = this;
-      firebaseApp.auth().signInWithEmailAndPassword(email, password)
+      firebaseApp.auth().createUserWithEmailAndPassword(email, password)
         .catch(error => {
-          this.error = error;
+          this.error = error
         })
     }
   }

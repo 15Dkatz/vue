@@ -13,6 +13,11 @@ export const mutations = {
     console.log('resetting the user in store')
     state.signedIn = false
     state.user = {}
+  },
+
+  [types.SET_EVENTS] (state, events_payload) {
+    console.log('setting the events store with payload', events_payload)
+    state.events = events_payload
   }
 }
 

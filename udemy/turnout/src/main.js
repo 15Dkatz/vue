@@ -18,6 +18,7 @@ import store from './store'
 import App from './components/App.vue'
 import Dashboard from './components/Dashboard.vue'
 import Signin from './components/Signin.vue'
+import Signup from './components/Signup.vue'
 
 const otherSignin = Vue.component('other-signin', {
   template: `<div>Other Sign In Component</div>`
@@ -28,8 +29,8 @@ const router = new VueRouter({
   mode: 'history', // todo explain
   routes: [
     { path: '/dashboard', component: Dashboard },
-    { path: '/signin', component: Signin }
-      // { path: '/signup', component: SignUp }
+    { path: '/signin', component: Signin },
+    { path: '/signup', component: Signup }
   ]
 })
 

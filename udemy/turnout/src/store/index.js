@@ -11,7 +11,8 @@ Vue.use(Vuex)
 // update with actions
 const state = {
   signedIn: false,
-  user: {}
+  user: {},
+  events: []
 }
 
 export default new Vuex.Store({

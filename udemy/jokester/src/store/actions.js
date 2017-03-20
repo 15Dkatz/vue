@@ -1,7 +1,7 @@
 import * as types from './mutation-types'
 
 // todo initJokes action which initializes jokes
-export const initJokes = ({commit}) => {
+export const initJokes = ({ commit }) => {
   fetch('http://localhost:4000/random_ten', {
     method: 'GET'
   })
