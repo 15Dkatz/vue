@@ -19,7 +19,7 @@ var localComponent = Vue.component('local-component', {
 
 var evenCounter = Vue.component('even-counter', {
   template: '<button v-on:click="count += 2">{{count}}</button>',
-  data: function() {
+  data() {
     return {
       count: 0
     }
@@ -111,7 +111,7 @@ var localArr = Vue.component('local-arr', {
     }
   },
   methods: {
-    grow: function() {
+    grow() {
       this.localArr.push('*')
       this.$emit('grow')
 

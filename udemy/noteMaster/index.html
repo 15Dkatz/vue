@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NoteMaster</title>
+    <title>Notemaster</title>
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="http://davidtkatz.com/public_css/noteMaster.css">
@@ -11,12 +11,12 @@
       <h3>{{ title }}</h3>
       <div class="form">
         <div class="form-group">
-          <label for="noteTitle">Note Title</label>
-          <input class="form-control" type="text" id="noteTitle" v-model="note.title">
+          <label>Note Title</label>
+          <input class="form-control" type="text" v-model="note.title">
         </div>
         <div class="form-group">
-          <label for="noteText">Note Text</label>
-          <textarea class="form-control" id="noteText" v-model="note.text"></textarea>
+          <label>Note Text</label>
+          <textarea class="form-control" v-model="note.text"></textarea>
         </div>
       </div>
 
@@ -46,7 +46,7 @@
       var app = new Vue({
         el: '#app',
         data: {
-          title: 'NoteMaster',
+          title: 'Notemaster',
           note: {
             title: "",
             text: ""
