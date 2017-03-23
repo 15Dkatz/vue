@@ -20,16 +20,15 @@ export default {
     }
   },
   created() {
-    this.generateItems()
+    this.fetchItems()
   },
   watch: {
-    '$route': 'generateItems'
+    '$route': 'fetchItems'
   },
   methods: {
-    generateItems() {
+    fetchItems() {
       this.items = [];
       this.type = this.$route.params.type
-      // for people
       let initial_ids = [1, 13, 14]
       for (let i in initial_ids) {
         let id = initial_ids[i];

@@ -11,9 +11,12 @@ body {
   margin-top: 60px;
 }
 
-.character-card {
+.item-card {
   border: 2px solid #4FC08D;
   border-radius: 4px;
+  padding: 5px;
+  padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .link, .link:hover, .link:visited, .link:active {

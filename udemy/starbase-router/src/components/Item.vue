@@ -5,7 +5,7 @@ https://github.com/vuejs/vue-router/blob/dev/examples/data-fetching/Post.vue
 
 -->
 <template>
-<div class="col-md-4" v-on:click="select">
+<div class="col-md-4" v-on:click="switchItem">
   <div class="item-card">
     <div class="card-block">
       <h4 class="card-title">{{item.name}}</h4>
@@ -32,7 +32,7 @@ export default {
     this.item = this.passedItem
   },
   methods: {
-    select() {
+    switchItem() {
       // 61 is a safe range for both
       let random_id = Math.floor(Math.random() * 61) + 1;
       fetch(`http://swapi.co/api/${this.type}/${random_id}/`, {
