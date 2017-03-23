@@ -1,7 +1,7 @@
 <template>
 <div
   class="col-md-4"
-  v-on:click="select"
+  v-on:click="switchCharacter"
 >
   <div class="character-card">
     <div class="card-block">
@@ -29,7 +29,7 @@ export default {
         this.character = json;
       })
     },
-    select() {
+    switchCharacter() {
       // 83 is the number of characters in the list
       let random_id = Math.floor(Math.random() * 83) + 1;
       this.fetchCharacter(random_id)
