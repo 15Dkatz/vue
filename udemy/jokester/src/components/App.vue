@@ -3,8 +3,8 @@
 <template>
   <div id="app">
     <h3>Got Jokes?</h3>
-    <button class="btn btn-royal" @click="initJokes">Add 10 random jokes</button>
-    <button class="btn btn-primary" @click="addToJokes">Add a joke</button>
+    <button class="btn btn-success" @click="initJokes">Add 10 random jokes</button>
+    <button class="btn btn-primary" @click="addJoke">Add a joke</button>
     <br>
     <div>
       <span v-for="type in types">
@@ -48,7 +48,7 @@ export default {
     }
   },
   methods: mapActions([
-    'addToJokes',
+    'addJoke',
     'initJokes'
   ]),
   components: {

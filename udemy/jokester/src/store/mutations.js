@@ -5,7 +5,7 @@ export const mutations = {
     state.jokes.push(...payload)
   },
 
-  [types.ADD_TO_JOKES] (state, payload) {
+  [types.ADD_JOKE] (state, payload) {
     console.log('payload', payload);
     state.jokes.push(payload);
   },

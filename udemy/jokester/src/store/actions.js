@@ -14,18 +14,18 @@ export const initJokes = ({ commit }) => {
 
 
 // TODO change to the heroku api and make sure cors works!
-export const addToJokes = ({ commit }) => {
+export const addJoke = ({ commit }) => {
   fetch('http://localhost:4000/random_joke', {
     method: 'GET'
   })
   .then(response => response.json())
   .then(json => {
     console.log('json', json)
-    commit(types.ADD_TO_JOKES, json)
+    commit(types.ADD_JOKE, json)
   })
 }
 
-export const removeJoke = ({commit}, id) => {
+export const removeJoke = ({ commit }, id) => {
   console.log('called remove action with id', id)
   commit(types.REMOVE_JOKE, id)
 }
