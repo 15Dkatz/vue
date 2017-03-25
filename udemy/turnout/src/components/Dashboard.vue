@@ -43,9 +43,10 @@ export default {
     eventsRef.on('value', snap => {
       let events = [];
       snap.forEach(event => {
-        const { title, description, date, location } = event.val();
-        events.push({ title, description, date, location })
+        const { title, description, date, location, email } = event.val();
+        events.push({ title, description, date, location, email })
       })
+      // dispatching an action
       this.$store.dispatch('setEvents', events)
     })
   },

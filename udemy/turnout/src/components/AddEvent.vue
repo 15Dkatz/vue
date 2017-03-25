@@ -43,7 +43,8 @@ export default {
         title: '',
         description: '',
         date: '',
-        location: ''
+        location: '',
+        email: ''
       }
     }
   },
@@ -51,6 +52,8 @@ export default {
 
   methods: {
     addEvent() {
+      const { email } = this.$store.state.user
+      this.event.email = email;
       eventsRef.push(this.event)
     }
   }

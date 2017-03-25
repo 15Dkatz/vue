@@ -8,6 +8,7 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{event.date}}</li>
       <li class="list-group-item">{{event.location}}</li>
+      <li class="list-group-item">Host: {{event.email}}</li>
     </ul>
   </div>
 </div>
