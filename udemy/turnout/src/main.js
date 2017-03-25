@@ -16,7 +16,7 @@ const otherSignin = Vue.component('other-signin', {
 
 
 const router = new VueRouter({
-  mode: 'history', // todo explain
+  mode: 'history',
   routes: [
     { path: '/dashboard', component: Dashboard },
     { path: '/signin', component: Signin },
