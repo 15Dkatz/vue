@@ -25,7 +25,7 @@ export const addJoke = ({ commit }) => {
   })
 }
 
-export const removeJoke = ({ commit }, id) => {
-  console.log('called remove action with id', id)
-  commit(types.REMOVE_JOKE, id)
+export const removeJoke = ({ commit }, index) => {
+  console.log('called remove action with index', index)
+  commit(types.REMOVE_JOKE, index)
 }

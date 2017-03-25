@@ -1,5 +1,3 @@
-<!-- TODO add a favoriting action that modifies state ? -->
-<!-- TODO add more to the API -->
 <template>
   <div id="app">
     <h3>Got Jokes?</h3>
@@ -10,12 +8,11 @@
       <span v-for="type in types">
         <input
           type="checkbox"
-          :id="type"
           :value="type"
           v-model="checkedTypes"
           checked
         />
-        <label :for="type">{{type}}</label>&nbsp;
+        <label>{{type}}</label>&nbsp;
       </span>
     </div>
     <br>
@@ -24,7 +21,7 @@
         v-for="(joke, index) in $store.state.jokes"
         v-show="checkedTypes.includes(joke.type)"
         :joke="joke"
-        :id="index"
+        :index="index"
         key="index"
       />
     </div>

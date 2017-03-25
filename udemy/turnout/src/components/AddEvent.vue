@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
       <label>Description</label>
-      <input type="text" class="form-control" placeholder="description" v-model="event.date">
+      <input type="text" class="form-control" placeholder="description" v-model="event.description">
     </div>
     <div class="form-group">
       <label>Date</label>

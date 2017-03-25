@@ -1,13 +1,3 @@
-/*
-  TODO list:
-  [] make the sign up component
-  [] make the real-time event making
-  [] find the vue way to upload pictures...? Might be easier without pictures. Just have dates, titles, subtitle, contact-info fields
-  [] make the create-event component
-  [] make the events list component
-  [] make it all pretty
-*/
-
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 

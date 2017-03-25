@@ -10,8 +10,8 @@ export const mutations = {
     state.jokes.push(payload);
   },
 
-  [types.REMOVE_JOKE] (state, id) {
-    console.log('remove by id', id)
-    state.jokes.splice(id, 1)
+  [types.REMOVE_JOKE] (state, index) {
+    console.log('remove by index', index)
+    state.jokes.splice(index, 1)
   }
 }
