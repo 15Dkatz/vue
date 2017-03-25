@@ -16,7 +16,6 @@
     />
     <button
       @click="signIn"
-      type="button"
       class="btn btn-primary"
     >
       Sign In
@@ -50,8 +49,7 @@ export default {
     signIn() {
       // example user (manually created on firebase):
       // { email: frodo@hobbit.com, password: testing }
-      const { email, password } = this;
-      firebaseApp.auth().signInWithEmailAndPassword(email, password)
+      firebaseApp.auth().signInWithEmailAndPassword(this.email, this.password)
         .catch(error => {
           this.error = error;
         })
