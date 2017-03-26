@@ -10,7 +10,6 @@ Vue.use(Vuex)
 // signedIn false by default
 // update with actions
 const state = {
-  signedIn: false,
   user: {},
   events: []
 }

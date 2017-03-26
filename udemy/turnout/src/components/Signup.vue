@@ -45,8 +45,7 @@ export default {
 
   methods: {
     signUp() {
-      const { email, password } = this;
-      firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+      firebaseApp.auth().createUserWithEmailAndPassword(this.email, this.password)
         .catch(error => {
           this.error = error
         })

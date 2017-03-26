@@ -3,7 +3,6 @@
   <div class="">
     <h3>Events Dashboard</h3>
     <button
-      type="button"
       class="btn btn-sm btn-danger signout-btn"
       @click="signOut"
     >
