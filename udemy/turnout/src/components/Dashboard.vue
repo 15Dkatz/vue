@@ -13,11 +13,10 @@
   <AddEvent />
   <hr>
   <div class="col-md-12">
-    <!-- Loop through this.$store.state.events -->
     <EventItem
-      v-for="(event, i) in this.$store.state.events"
-      v-bind:event="event"
-      key="i"
+      v-for="(event, index) in this.$store.state.events"
+      :event="event"
+      key="index"
     />
   </div>
   <br>
@@ -42,8 +41,7 @@ export default {
     eventsRef.on('value', snap => {
       let events = [];
       snap.forEach(event => {
-        const { title, description, date, location, email } = event.val();
-        events.push({ title, description, date, location, email })
+        events.push(event.val())
       })
       // dispatching an action
       this.$store.dispatch('setEvents', events)

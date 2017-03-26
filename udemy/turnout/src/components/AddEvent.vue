@@ -1,16 +1,14 @@
 <template>
 <div class="">
-  <div class="">
-    <h4>Add an event <input type="checkbox" v-model="showForm"></h4>
-  </div>
+  <h4>Add an Event <input type="checkbox" v-model="showForm"></h4>
   <div class="form" v-if="showForm">
     <div class="form-group">
       <label>Title</label>
-      <input type="text" class="form-control" placeholder="title" v-model="event.title">
+      <input type="text" class="form-control" v-model="event.title">
     </div>
     <div class="form-group">
       <label>Description</label>
-      <input type="text" class="form-control" placeholder="description" v-model="event.description">
+      <input type="text" class="form-control" v-model="event.description">
     </div>
     <div class="form-group">
       <label>Date</label>
@@ -18,10 +16,9 @@
     </div>
     <div class="form-group">
       <label>Location/Address</label>
-      <input type="text" class="form-control" placeholder="Location/Address" v-model="event.location">
+      <input type="text" class="form-control" v-model="event.location">
     </div>
     <button
-      type="button"
       class="btn-sm btn-primary"
       @click="addEvent"
     >
@@ -49,11 +46,9 @@ export default {
     }
   },
 
-
   methods: {
     addEvent() {
-      const { email } = this.$store.state.user
-      this.event.email = email;
+      this.event.email = this.$store.state.user.email;
       eventsRef.push(this.event)
     }
   }
